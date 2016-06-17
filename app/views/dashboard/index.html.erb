@@ -1,7 +1,18 @@
+
 <% if notice %>
     <p id="notice"><%= notice %></p>
 <% end %>
 
+<%= form_tag(enroll_dashboard_index_path , method: '/posts') do %>
+    <% @courses.each do |c| %>
 
-
+        <%= check_box_tag "vaga[id][]", c.id  %>
+        <%= label_tag "vaga[id][][#{c.id}]", c.title %> <br>
+        <%= label_tag "Description :" %>
+        <%= label_tag "vaga[id][][#{c.id}]", c.description %><br>
+        <%= label_tag "Credit Hour :" %>
+        <%= label_tag "vaga[id][][#{c.id}]", c.creidt %> <br>
+    <% end %>
+    <div><%= submit_tag 'Save' %></div>
+<% end %>
 <%= link_to "logout", destroy_user_session_path, method: :delete %>

@@ -1,0 +1,13 @@
+<h1>Welcome to the Dashboard</h1>
+<h2>The course you have selected </h2>
+
+    <% current_user.courses.each do |i| %>
+        <ul>
+          <li>
+            <%= i.title %>
+          </li>
+        </ul>
+    <% end %>
+
+
+<%= link_to "logout", destroy_user_session_path, method: :delete %>
